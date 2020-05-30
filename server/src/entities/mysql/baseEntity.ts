@@ -1,4 +1,4 @@
-import {Entity, Column, PrimaryColumn, Generated} from "typeorm";
+import {Entity, Column, PrimaryColumn} from "typeorm";
 
 // @Entity()
 export class BaseEntity {
@@ -26,7 +26,8 @@ export class BaseEntity {
 
   @Column({
     select: false,
-    default: 0
+    default: 0,
+    onUpdate: '111'
   })
   version?: number;
 }

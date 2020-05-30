@@ -6,11 +6,12 @@ import Store from "../utils/session/store";
 import { JWT_SECRET, EXP_TIME } from '../constants'
 import { sign } from '../core/jwt/sign'
 import { cryptoPwd } from "../utils/tools"
+import UserCtrl from './UserController'
 
 const store = new Store
 
 export default class AccountController {
-  
+
   //POST
   static async login(ctx: Context) {
     const inputs: any = ctx.fields;
@@ -37,6 +38,12 @@ export default class AccountController {
     } else {
       ctx.throw(400, '用户名或密码错误！');
     }
+  }
+
+  // POST
+  static async register(ctx: Context) {
+    const result = await UserCtrl.insert(ctx.fields, ctx)
+    ctx.Json(result)
   }
 
   //POST

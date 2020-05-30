@@ -2,13 +2,12 @@ import { Context } from '@core/koa'
 
 // only post fields(not upload file stream)
 
-const getPostData = (ctx: Context) => {
+const getPostData = (ctx: Context): object => {
 
   return new Promise((resolve, reject) => {
     try{
       let postData = ''
       ctx.req.on('data', data => {
-        // console.log(data, 'data')
         postData += data
       })
 
@@ -26,7 +25,7 @@ const getPostData = (ctx: Context) => {
 }
 
 const KoaBody = async (ctx: Context, next: () => Promise<any>) => {
-  if(/^(POST|PUT)$/.test(ctx.method) && !/\/api\/upload/.test(ctx.path)) {
+  if(/^(POST|PUT)$/.test(ctx.method)) {
     ctx.fields = await getPostData(ctx)
   }
   // console.log('ctx.fields,', ctx.fields)

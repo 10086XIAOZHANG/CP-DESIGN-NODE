@@ -1,5 +1,5 @@
 import 'reflect-metadata'
-import { createConnection } from "typeorm";
+import { createConnection, Connection } from 'typeorm'
 import { MySqlConf, MongoConf } from '../../conf/db.conf'
 import { Entities } from '../entities/mysql'
 import { MongoEntities } from '../entities/mongo'
@@ -17,11 +17,11 @@ const connectDB = (): void => {
     entities : Entities,
     logging  : _PROD_ ? false : true,
     // logger   : 'simple-console'
-  }).then((connect) => {
+  }).then((connect: Connection) => {
     console.log('mysql connect success!')
   }).catch((err) => {
     console.log('mysql connect fail!', err)
-  })  
+  })
 }
 
 const connectMongo = (): void => {
@@ -35,11 +35,12 @@ const connectMongo = (): void => {
     database : MongoConf.database,
     entities : MongoEntities,
     logging  : _PROD_ ? false : true,
-  }).then((connect) => {
+    useNewUrlParser: true
+  }).then((connect: Connection) => {
     console.log('mongo connect success!')
   }).catch((err) => {
     console.log('mongo connect fail!', err)
-  })  
+  })
 }
 
 export {

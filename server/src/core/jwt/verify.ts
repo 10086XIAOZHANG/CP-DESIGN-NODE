@@ -19,7 +19,7 @@ function verifyEqual (thing: string, sig: string, secrect: string | Buffer): boo
 export const verify = (jwtStr: string, opts: Options): [boolean, any] => {
 
   let jwtToken = jwtStr.split(' ')[1]  // "Bearer jwtToken"
-  // console.log(jwtStr, '-------',jwtToken)
+  console.log(jwtStr, '-------', jwtToken)
   if(!/^[a-zA-Z0-9\-_]+?\.[a-zA-Z0-9\-_]+?\.([a-zA-Z0-9\-_]+){1}$/.test(jwtToken)) {
     throw new JsonWebTokenError('jwt js error format')
   }
@@ -67,5 +67,5 @@ export const verify = (jwtStr: string, opts: Options): [boolean, any] => {
   } catch(e) {
     throw new JsonWebTokenError(e.message || 'jwt verify error')
   }
-  
+
 }

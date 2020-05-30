@@ -9,7 +9,7 @@ class Options {
   alg?: string = 'HS256'
   typ?: string = 'JWT'
   expiresIn?: number
-  encoding?: 'utf-8'
+  encoding?: BufferEncoding = 'utf-8'
 }
 
 export function createHmacSigner (thing: string, secret: string | Buffer): string {
@@ -30,7 +30,7 @@ function toString(obj: any) {
   return JSON.stringify(obj);
 }
 
-function base64url(string: string, encoding: string): string {
+function base64url(string: string, encoding: BufferEncoding): string {
   return Buffer
     .from(string, encoding)
     .toString('base64')
@@ -39,7 +39,7 @@ function base64url(string: string, encoding: string): string {
     .replace(/\//g, '_');
 }
 
-function jwtSecuredInput(header: any, payload: any, encoding: string) {
+function jwtSecuredInput(header: any, payload: any, encoding: BufferEncoding) {
   encoding = encoding || 'utf8';
   let encodedHeader = base64url(toString(header), 'binary');
   let encodedPayload = base64url(toString(payload), encoding);
@@ -58,7 +58,7 @@ export const sign = (payload: IPayloadOptions, secret: string | Buffer, opts: Op
 
   payload.iat = Date.now() // sign time
   payload.exp = payload.iat + payload.exp // expire time, become time stamp
-  
+
   let secretOrKey = secret;
   let encoding = opts.encoding;
   let securedInput = jwtSecuredInput(header, payload, encoding);

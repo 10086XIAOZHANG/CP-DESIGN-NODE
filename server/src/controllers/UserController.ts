@@ -67,9 +67,9 @@ export default class UserController {
     model.password = cryptoPwd(password, username)
     model.remark =  args.remark
     model.sex =  args.sex
-    model.createdBy = ctx.state['CUR_USER'].id
+    model.createdBy = ctx.state['CUR_USER']
     model.createdAt = Date.now()
-    model.updatedBy = ctx.state['CUR_USER'].id
+    model.updatedBy = ctx.state['CUR_USER']
     model.updatedAt = Date.now()
     const result = await getRepository(User).save(model)
     return result

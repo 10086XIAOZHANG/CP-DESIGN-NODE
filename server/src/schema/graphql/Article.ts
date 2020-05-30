@@ -110,7 +110,7 @@ const query: Thunk<GraphQLFieldConfigMap<Source, Context>> = {
     args: {
       id: {
         name: 'id',
-        type: GraphQLNonNull(GraphQLString)
+        type: GraphQLString
       }
     },
     resolve: async (obj, args, ctx, info) => {

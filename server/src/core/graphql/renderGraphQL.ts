@@ -6,7 +6,7 @@ interface GraphiQLData {
 };
 
 // Current latest version of GraphiQL.
-const GRAPHIQL_VERSION = '1.7.4';
+const GRAPHIQL_VERSION = '1.7.20';
 
 /**
  * When express-graphql receives a request which does not Accept JSON, but does
@@ -25,7 +25,7 @@ export function renderGraphQL(): string {
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
     <link rel="shortcut icon" href="https://graphcool-playground.netlify.com/favicon.png">
     <title>GraphQL Playground</title>
-    
+
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/graphql-playground-react@${GRAPHIQL_VERSION}/build/static/css/index.css" />
     <link rel="shortcut icon" href="//cdn.jsdelivr.net/npm/graphql-playground-react@${GRAPHIQL_VERSION}/build/favicon.png" />
     <script src="//cdn.jsdelivr.net/npm/graphql-playground-react@${GRAPHIQL_VERSION}/build/static/js/middleware.js"></script>
@@ -37,17 +37,17 @@ export function renderGraphQL(): string {
         font-family: "Open Sans", sans-serif;
         overflow: hidden;
       }
-  
+
       body {
         margin: 0;
         background: #172a3a;
       }
-  
+
       .playgroundIn {
         -webkit-animation: playgroundIn 0.5s ease-out forwards;
         animation: playgroundIn 0.5s ease-out forwards;
       }
-  
+
       @-webkit-keyframes playgroundIn {
         from {
           opacity: 0;
@@ -62,7 +62,7 @@ export function renderGraphQL(): string {
           transform: translateY(0);
         }
       }
-  
+
       @keyframes playgroundIn {
         from {
           opacity: 0;
@@ -542,12 +542,12 @@ export function renderGraphQL(): string {
     <div id="root"></div>
     <script type="text/javascript">
       window.addEventListener('load', function (event) {
-          
+
       const loadingWrapper = document.getElementById('loading-wrapper');
       if (loadingWrapper) {
         loadingWrapper.classList.add('fadeOut');
       }
-      
+
       const root = document.getElementById('root');
       root.classList.add('playgroundIn');
 

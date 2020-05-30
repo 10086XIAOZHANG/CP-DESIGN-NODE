@@ -6,7 +6,7 @@ import { RedisConf } from '../../../conf/db.conf'
 
 class RedisStore {
   private redis: Redis.Redis
-  
+
   constructor() {
     this.redis = new Redis(RedisConf);
   }
@@ -19,7 +19,7 @@ class RedisStore {
     let data = await this.redis.get(sid);
     return JSON.parse(data);
   }
- 
+
   public async set(obj: any, { sid =  this.getID(32), maxAge }: any = {}): Promise<string> {
     try {
       await this.redis.set(sid, JSON.stringify(obj), 'PX', maxAge)

@@ -11,3 +11,7 @@
 - mongodb
 - koa-router
 - mpa
+- react redux
+- redux
+- Apollo
+- Typescript

@@ -1,6 +1,6 @@
-const { render } = require('../render/render')
-const router = require('koa-router')()
+const { render } = require("../render/render");
+const router = require("koa-router")();
 
-router.get('*', render)
+router.get("*", render);
 
-module.exports = router
+module.exports = router;

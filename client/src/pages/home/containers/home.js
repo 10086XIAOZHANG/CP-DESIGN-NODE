@@ -47,8 +47,7 @@ class Home extends Component {
         <BookList booklist={props.booklist}></BookList>
         <div className="btn-container">
           <a className="action" onClick={this.loadMore.bind(this, page + 1)}>
-            {" "}
-            加载更多...{" "}
+            加载更多...
           </a>
         </div>
       </div>
@@ -91,4 +90,5 @@ BookList.propTypes = {
   booklist: PropTypes.array.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+const exportHome = connect(mapStateToProps, mapDispatchToProps)(Home);
+export default exportHome;

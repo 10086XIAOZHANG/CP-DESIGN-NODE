@@ -46,6 +46,11 @@ module.exports = {
       require.resolve("react-dev-utils/webpackHotDevClient"),
       paths.otherIndexJs,
     ],
+    acticle: [
+      require.resolve("./polyfills"),
+      require.resolve("react-dev-utils/webpackHotDevClient"),
+      paths.acticleIndexJs,
+    ],
   },
   output: {
     // Add /* filename */ comments to generated require()s in the output.
@@ -236,6 +241,11 @@ module.exports = {
       template: paths.otherHtml,
       chunks: ["other"],
       filename: "other.html",
+    }),
+    new HtmlWebpackPlugin({
+      template: paths.acticleHtml,
+      chunks: ["acticle"],
+      filename: "acticle.html",
     }),
     // Add module names to factory functions so they appear in browser profiler.
     new webpack.NamedModulesPlugin(),

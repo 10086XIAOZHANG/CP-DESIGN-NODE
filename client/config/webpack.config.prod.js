@@ -60,6 +60,7 @@ module.exports = {
   entry: {
     home: [require.resolve("./polyfills"), paths.homeIndexJs],
     other: [require.resolve("./polyfills"), paths.otherIndexJs],
+    acticle: [require.resolve("./polyfills"), paths.acticleIndexJs],
   },
   output: {
     // The build folder.
@@ -285,6 +286,24 @@ module.exports = {
       template: paths.otherHtml,
       filename: "other.html",
       chunks: ["other"],
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true,
+      },
+    }),
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: paths.otherHtml,
+      filename: "acticle.html",
+      chunks: ["acticle"],
       minify: {
         removeComments: true,
         collapseWhitespace: true,

@@ -46,6 +46,8 @@ module.exports = {
   homeIndexJs: resolveApp("src/pages/home/index.js"),
   otherHtml: resolveApp("html-template/other.html"),
   otherIndexJs: resolveApp("src/pages/other/index.js"),
+  acticleHtml: resolveApp("html-template/acticle.html"),
+  acticleIndexJs: resolveApp("src/pages/acticle/index.js"),
   appPackageJson: resolveApp("package.json"),
   appSrc: resolveApp("src"),
   yarnLockFile: resolveApp("yarn.lock"),

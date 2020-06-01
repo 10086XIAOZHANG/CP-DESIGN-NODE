@@ -8,5 +8,4 @@ const router = [
   { path: "/about", component: Home },
   { path: "/topics", component: Topics },
 ];
-
 export default router;
